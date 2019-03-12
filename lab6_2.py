@@ -41,8 +41,10 @@ def encode_morze(text):
     new_text = ""
     for x in text:
         if x in morse_code.keys():
-            letter = encode_morze_sym(x)
-        new_text += (letter) + "___"
+            new_text += encode_morze_sym(x) + "___"
+        elif x == " ":
+            new_text = new_text[:-3]
+            new_text += "_______"
     return new_text[:-3]
 
 
@@ -52,5 +54,8 @@ def encode_morze(text):
 
 print encode_morze("SOS")
 print encode_morze('Prometheus')
+print encode_morze('Morze')
+print encode_morze('code')
+print encode_morze('Morze code')
 #print encode_morze("boo 123 boo")
 #print encode_morze("123")
